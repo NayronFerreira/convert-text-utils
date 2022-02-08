@@ -52,4 +52,5 @@ public class TextService {
         }
         return new String(chars);
     }
+
 }
