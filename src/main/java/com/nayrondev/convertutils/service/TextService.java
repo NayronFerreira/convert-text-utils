@@ -18,7 +18,12 @@ public class TextService {
         String stringConverted = "";
 
         for (int i = 0; i < separateWords.length; i++) {
-            stringConverted = stringConverted + " " + firstUpperCase(separateWords[i].toString());
+            if (i+1 == separateWords.length){
+                stringConverted = stringConverted + firstUpperCase(separateWords[i].toString());
+
+            } else {
+                stringConverted = stringConverted + firstUpperCase(separateWords[i].toString()+ " ");
+            }
         }
         return stringConverted;
     }

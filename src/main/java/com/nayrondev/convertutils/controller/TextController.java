@@ -21,22 +21,30 @@ public class TextController {
     }
 
     @GetMapping (value = "/tolowercase/{text}")
-    public ResponseEntity<String> toLowerCase(@PathVariable("text")String text){
-        return ResponseEntity.ok().body(textService.toLowerCase(text));
+    public ResponseEntity<Text> toLowerCase(@PathVariable("text")String text){
+        Text objText = new Text(text);
+        objText.setText(textService.toLowerCase(text));
+        return ResponseEntity.ok().body(objText);
     }
 
     @GetMapping (value = "/camelcase/{text}")
-    public ResponseEntity<String> camelCase(@PathVariable("text")String text){
-        return ResponseEntity.ok().body(textService.toCamelCase(text));
+    public ResponseEntity<Text> camelCase(@PathVariable("text")String text){
+        Text objText = new Text(text);
+        objText.setText(textService.toCamelCase(text));
+        return ResponseEntity.ok().body(objText);
     }
 
     @GetMapping (value = "/alternativecase/{text}")
-    public ResponseEntity<String> alternativeCase(@PathVariable("text")String text){
-        return ResponseEntity.ok().body(textService.alternativeCase(text));
+    public ResponseEntity<Text> alternativeCase(@PathVariable("text")String text){
+        Text objText = new Text(text);
+        objText.setText(textService.alternativeCase(text));
+        return ResponseEntity.ok().body(objText);
     }
 
     @GetMapping (value = "/alternativecasetwo/{text}")
-    public ResponseEntity<String> alternativeCaseTwo(@PathVariable("text")String text){
-        return ResponseEntity.ok().body(textService.alternativeCaseTwo(text));
+    public ResponseEntity<Text> alternativeCaseTwo(@PathVariable("text")String text){
+        Text objText = new Text(text);
+        objText.setText(textService.alternativeCaseTwo(text));
+        return ResponseEntity.ok().body(objText);
     }
 }
