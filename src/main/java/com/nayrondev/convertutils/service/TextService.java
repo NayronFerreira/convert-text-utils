@@ -1,19 +1,26 @@
 package com.nayrondev.convertutils.service;
 
+import com.nayrondev.convertutils.model.Text;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class TextService {
 
-    public String toUpperCase(String text) {
-        return text.toUpperCase();
+    public Text toUpperCase(String text) {
+        Text objText = new Text(text);
+        objText.setText(objText.getText().toUpperCase());
+        return objText;
     }
 
-    public String toLowerCase(String text) {
-        return text.toLowerCase();
+    public Text toLowerCase(String text) {
+        Text objText = new Text(text);
+        objText.setText(objText.getText().toLowerCase());
+        return objText;
     }
 
-    public String toCamelCase(String text) {
+    public Text toCamelCase(String text) {
+        Text objText = new Text(text);
         String[] separateWords = text.split(" ");
         String stringConverted = "";
 
@@ -25,7 +32,8 @@ public class TextService {
                 stringConverted = stringConverted + firstUpperCase(separateWords[i].toString()+ " ");
             }
         }
-        return stringConverted;
+        objText.setText(stringConverted);
+        return objText;
     }
 
     public String firstUpperCase(String text) {

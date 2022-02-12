@@ -15,13 +15,13 @@ public class Text {
         this.text = text;
     }
 
-    public Integer getWords(){
+    public Integer getWords() {
         String[] separateWords = text.split(" ");
         this.words = separateWords.length;
         return words;
     }
 
-    public Integer getChars(){
+    public Integer getChars() {
         char[] charsArray = text.toCharArray();
         this.chars = charsArray.length;
         return chars;

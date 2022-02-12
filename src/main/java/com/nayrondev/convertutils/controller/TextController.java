@@ -14,35 +14,29 @@ public class TextController {
     private TextService textService;
 
     @GetMapping(value = "/touppercase/{text}")
-    public ResponseEntity<Text> toUpperCase(@PathVariable ("text")String text){
-        Text objText = new Text(text);
-        objText.setText(textService.toUpperCase(text));
-        return ResponseEntity.ok().body(objText);
+    public ResponseEntity<Text> toUpperCase(@PathVariable("text") String text){
+        return ResponseEntity.ok().body(textService.toUpperCase(text));
     }
 
     @GetMapping (value = "/tolowercase/{text}")
-    public ResponseEntity<Text> toLowerCase(@PathVariable("text")String text){
-        Text objText = new Text(text);
-        objText.setText(textService.toLowerCase(text));
-        return ResponseEntity.ok().body(objText);
+    public ResponseEntity<Text> toLowerCase(@PathVariable("text") String text){
+        return ResponseEntity.ok().body(textService.toLowerCase(text));
     }
 
     @GetMapping (value = "/camelcase/{text}")
-    public ResponseEntity<Text> camelCase(@PathVariable("text")String text){
-        Text objText = new Text(text);
-        objText.setText(textService.toCamelCase(text));
-        return ResponseEntity.ok().body(objText);
+    public ResponseEntity<Text> camelCase(@PathVariable("text") String text){
+        return ResponseEntity.ok().body(textService.toCamelCase(text));
     }
 
     @GetMapping (value = "/alternativecase/{text}")
-    public ResponseEntity<Text> alternativeCase(@PathVariable("text")String text){
+    public ResponseEntity<Text> alternativeCase(@PathVariable("text") String text){
         Text objText = new Text(text);
         objText.setText(textService.alternativeCase(text));
         return ResponseEntity.ok().body(objText);
     }
 
     @GetMapping (value = "/alternativecasetwo/{text}")
-    public ResponseEntity<Text> alternativeCaseTwo(@PathVariable("text")String text){
+    public ResponseEntity<Text> alternativeCaseTwo(@PathVariable("text") String text){
         Text objText = new Text(text);
         objText.setText(textService.alternativeCaseTwo(text));
         return ResponseEntity.ok().body(objText);
