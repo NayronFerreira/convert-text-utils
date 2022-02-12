@@ -36,34 +36,37 @@ public class TextService {
         return objText;
     }
 
-    public String firstUpperCase(String text) {
+    public Text alternativeCase(String text) {
+        Text objText = new Text(text);
+        char[] chars = text.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (i % 2 == 0) {
+                chars[i] = Character.toUpperCase(chars[i]);
+            } else {
+                chars[i] = Character.toLowerCase(chars[i]);
+            }
+        }
+        objText.setText(new String(chars));
+        return objText;
+    }
+
+    public Text alternativeCaseTwo(String text){
+        Text objText = new Text(text);
+        char[] chars = text.toCharArray();
+        for (int i = 0; i < chars.length; i++) {
+            if (i % 2 == 0) {
+                chars[i] = Character.toLowerCase(chars[i]);
+            } else {
+                chars[i] = Character.toUpperCase(chars[i]);
+            }
+        }
+        objText.setText(new String(chars));
+        return objText;
+    }
+
+    public static String firstUpperCase(String text) {
         char[] chars = text.toCharArray();
         chars[0] = Character.toUpperCase(chars[0]);
         return new String(chars);
     }
-
-    public String alternativeCase(String text) {
-        char[] chars = text.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (i % 2 == 0) {
-                chars[i] = Character.toUpperCase(chars[i]);
-            } else {
-                chars[i] = Character.toLowerCase(chars[i]);
-            }
-        }
-        return new String(chars);
-    }
-
-    public String alternativeCaseTwo(String text){
-        char[] chars = text.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            if (i % 2 == 0) {
-                chars[i] = Character.toLowerCase(chars[i]);
-            } else {
-                chars[i] = Character.toUpperCase(chars[i]);
-            }
-        }
-        return new String(chars);
-    }
-
 }

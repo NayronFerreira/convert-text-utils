@@ -30,15 +30,11 @@ public class TextController {
 
     @GetMapping (value = "/alternativecase/{text}")
     public ResponseEntity<Text> alternativeCase(@PathVariable("text") String text){
-        Text objText = new Text(text);
-        objText.setText(textService.alternativeCase(text));
-        return ResponseEntity.ok().body(objText);
+        return ResponseEntity.ok().body(textService.alternativeCase(text));
     }
 
     @GetMapping (value = "/alternativecasetwo/{text}")
     public ResponseEntity<Text> alternativeCaseTwo(@PathVariable("text") String text){
-        Text objText = new Text(text);
-        objText.setText(textService.alternativeCaseTwo(text));
-        return ResponseEntity.ok().body(objText);
+        return ResponseEntity.ok().body(textService.alternativeCaseTwo(text));
     }
 }
