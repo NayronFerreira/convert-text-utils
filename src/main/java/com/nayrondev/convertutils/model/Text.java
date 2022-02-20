@@ -10,6 +10,7 @@ public class Text {
     private String text;
     private Integer words;
     private Integer chars;
+    private Integer noSpaceChars;
 
     public Text(String text){
         this.text = text;
@@ -25,5 +26,12 @@ public class Text {
         char[] charsArray = text.toCharArray();
         this.chars = charsArray.length;
         return chars;
+    }
+
+    public Integer getNoSpaceChars() {
+        String noSpaceChars = text.replace(" ","");
+        char[] charsArray = noSpaceChars.toCharArray();
+        this.noSpaceChars = charsArray.length;
+        return this.noSpaceChars;
     }
 }
