@@ -29,8 +29,8 @@ public class Text {
     }
 
     public Integer getNoSpaceChars() {
-        String noSpaceChars = text.replace(" ","");
-        char[] charsArray = noSpaceChars.toCharArray();
+        String noSpace = text.replace(" ","");
+        char[] charsArray = noSpace.toCharArray();
         this.noSpaceChars = charsArray.length;
         return this.noSpaceChars;
     }
