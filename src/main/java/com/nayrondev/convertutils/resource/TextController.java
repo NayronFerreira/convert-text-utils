@@ -24,18 +24,18 @@ public class TextController {
         return ResponseEntity.ok().body(textService.toLowerCase(request));
     }
 
-    @GetMapping (value = "/camelcase/{text}")
-    public ResponseEntity<Text> camelCase(@PathVariable("text") String text){
-        return ResponseEntity.ok().body(textService.toCamelCase(text));
+    @PostMapping (value = "/camelcase")
+    public ResponseEntity<Text> camelCase(TextRequest request) throws Exception {
+        return ResponseEntity.ok().body(textService.toCamelCase(request));
     }
 
-    @GetMapping (value = "/alternativecase/{text}")
-    public ResponseEntity<Text> alternativeCase(@PathVariable("text") String text){
-        return ResponseEntity.ok().body(textService.alternativeCase(text));
+    @PostMapping (value = "/alternativecase")
+    public ResponseEntity<Text> alternativeCase(TextRequest request) throws Exception {
+        return ResponseEntity.ok().body(textService.alternativeCase(request));
     }
 
-    @GetMapping (value = "/alternativecasetwo/{text}")
-    public ResponseEntity<Text> alternativeCaseTwo(@PathVariable("text") String text){
-        return ResponseEntity.ok().body(textService.alternativeCaseTwo(text));
+    @PostMapping (value = "/alternativecasetwo")
+    public ResponseEntity<Text> alternativeCaseTwo(TextRequest request) throws Exception {
+        return ResponseEntity.ok().body(textService.alternativeCaseTwo(request));
     }
 }
