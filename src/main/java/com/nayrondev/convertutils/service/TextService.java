@@ -1,7 +1,7 @@
 package com.nayrondev.convertutils.service;
 
 import com.nayrondev.convertutils.domain.Text;
-import com.nayrondev.convertutils.domain.TextRequest;
+import com.nayrondev.convertutils.domain.request.TextRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,14 +12,21 @@ public class TextService {
 
     private static final Logger logger = LoggerFactory.getLogger(TextService.class);
 
-    public Text toUpperCase(TextRequest text) {
-        return new Text(text.getText().toUpperCase());
+    public Text toUpperCase(TextRequest request) throws Exception {
+        try {
+            return new Text(request.getText().toUpperCase());
+        } catch (Exception e) {
+            throw new Exception("Falha ao converter texto" + e.getMessage());
+        }
     }
 
-    public Text toLowerCase(String text) {
-        Text objText = new Text(text);
-        objText.setText(objText.getText().toLowerCase());
-        return objText;
+    public Text toLowerCase(TextRequest request) throws Exception {
+        try {
+            return new Text(request.getText().toLowerCase());
+        } catch (Exception e) {
+            throw new Exception("Falha ao converter texto" + e.getMessage());
+        }
+
     }
 
     public Text toCamelCase(String text) {

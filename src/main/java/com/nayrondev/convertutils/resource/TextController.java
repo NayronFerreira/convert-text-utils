@@ -1,7 +1,7 @@
 package com.nayrondev.convertutils.resource;
 
 import com.nayrondev.convertutils.domain.Text;
-import com.nayrondev.convertutils.domain.TextRequest;
+import com.nayrondev.convertutils.domain.request.TextRequest;
 import com.nayrondev.convertutils.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +15,13 @@ public class TextController {
     private TextService textService;
 
     @PostMapping (value = "/touppercase")
-    public ResponseEntity<Text> toUpperCase(TextRequest request){
+    public ResponseEntity<Text> toUpperCase(TextRequest request) throws Exception {
         return ResponseEntity.ok().body(textService.toUpperCase(request));
     }
 
-    @GetMapping (value = "/tolowercase/{text}")
-    public ResponseEntity<Text> toLowerCase(@PathVariable("text") String text){
-        return ResponseEntity.ok().body(textService.toLowerCase(text));
+    @PostMapping (value = "/tolowercase")
+    public ResponseEntity<Text> toLowerCase(TextRequest request) throws Exception {
+        return ResponseEntity.ok().body(textService.toLowerCase(request));
     }
 
     @GetMapping (value = "/camelcase/{text}")

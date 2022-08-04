@@ -1,7 +1,5 @@
 package com.nayrondev.convertutils;
 
-import com.nayrondev.convertutils.domain.TextRequest;
-import com.nayrondev.convertutils.service.TextService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,4 +1,4 @@
-package com.nayrondev.convertutils.domain;
+package com.nayrondev.convertutils.domain.request;
 
 public class TextRequest {
 
