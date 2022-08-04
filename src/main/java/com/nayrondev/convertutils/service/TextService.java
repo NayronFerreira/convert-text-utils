@@ -1,16 +1,19 @@
 package com.nayrondev.convertutils.service;
 
-import com.nayrondev.convertutils.model.Text;
+import com.nayrondev.convertutils.domain.Text;
+import com.nayrondev.convertutils.domain.TextRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class TextService {
 
-    public Text toUpperCase(String text) {
-        Text objText = new Text(text);
-        objText.setText(objText.getText().toUpperCase());
-        return objText;
+    private static final Logger logger = LoggerFactory.getLogger(TextService.class);
+
+    public Text toUpperCase(TextRequest text) {
+        return new Text(text.getText().toUpperCase());
     }
 
     public Text toLowerCase(String text) {
@@ -33,6 +36,7 @@ public class TextService {
             }
         }
         objText.setText(stringConverted);
+        logger.info("metodo='toCamelCase' - objText='{}'",objText);
         return objText;
     }
 

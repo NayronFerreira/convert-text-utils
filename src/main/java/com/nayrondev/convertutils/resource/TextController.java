@@ -1,6 +1,7 @@
-package com.nayrondev.convertutils.controller;
+package com.nayrondev.convertutils.resource;
 
-import com.nayrondev.convertutils.model.Text;
+import com.nayrondev.convertutils.domain.Text;
+import com.nayrondev.convertutils.domain.TextRequest;
 import com.nayrondev.convertutils.service.TextService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +14,9 @@ public class TextController {
     @Autowired
     private TextService textService;
 
-    @GetMapping(value = "/touppercase/{text}")
-    public ResponseEntity<Text> toUpperCase(@PathVariable("text") String text){
-        return ResponseEntity.ok().body(textService.toUpperCase(text));
+    @PostMapping (value = "/touppercase")
+    public ResponseEntity<Text> toUpperCase(TextRequest request){
+        return ResponseEntity.ok().body(textService.toUpperCase(request));
     }
 
     @GetMapping (value = "/tolowercase/{text}")

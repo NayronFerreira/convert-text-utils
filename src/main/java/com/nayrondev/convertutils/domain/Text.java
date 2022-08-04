@@ -1,10 +1,5 @@
-package com.nayrondev.convertutils.model;
+package com.nayrondev.convertutils.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 public class Text {
 
     private String text;
@@ -14,6 +9,9 @@ public class Text {
 
     public Text(String text){
         this.text = text;
+        getWords();
+        getChars();
+        getNoSpaceChars();
     }
 
     public Integer getWords() {
@@ -33,5 +31,23 @@ public class Text {
         char[] charsArray = noSpace.toCharArray();
         this.noSpaceChars = charsArray.length;
         return this.noSpaceChars;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "Text{" +
+                "text='" + text + '\'' +
+                ", words=" + words +
+                ", chars=" + chars +
+                ", noSpaceChars=" + noSpaceChars +
+                '}';
     }
 }
