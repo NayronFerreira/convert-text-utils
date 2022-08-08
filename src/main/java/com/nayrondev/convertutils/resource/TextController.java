@@ -3,7 +3,6 @@ package com.nayrondev.convertutils.resource;
 import com.nayrondev.convertutils.domain.Text;
 import com.nayrondev.convertutils.domain.request.TextRequest;
 import com.nayrondev.convertutils.service.TextService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,8 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/convertutils")
 public class TextController {
 
-    @Autowired
-    private TextService textService;
+
+    private final TextService textService;
+
+    public TextController(TextService textService) {
+        this.textService = textService;
+    }
 
     @PostMapping (value = "/touppercase")
     public ResponseEntity<Text> toUpperCase(TextRequest request) throws Exception {
@@ -37,5 +40,10 @@ public class TextController {
     @PostMapping (value = "/alternativecasetwo")
     public ResponseEntity<Text> alternativeCaseTwo(TextRequest request) throws Exception {
         return ResponseEntity.ok().body(textService.alternativeCaseTwo(request));
+    }
+
+    @PostMapping (value = "/lettercounter/{character}")
+    public ResponseEntity<Integer> letterCounter(@PathVariable ("character") Character character, TextRequest request) throws Exception {
+        return ResponseEntity.ok().body(textService.characterCounter(character, request));
     }
 }

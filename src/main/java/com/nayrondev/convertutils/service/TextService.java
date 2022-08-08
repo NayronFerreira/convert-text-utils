@@ -4,6 +4,9 @@ import com.nayrondev.convertutils.domain.Text;
 import com.nayrondev.convertutils.domain.request.TextRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Service
 public class TextService {
@@ -86,4 +89,14 @@ public class TextService {
     public Boolean isEven(Integer number) {
         return number % 2 == 0;
     }
+
+    public static Integer characterCounter(Character character, TextRequest request) throws Exception {
+        try {
+            List<Character> charList = request.getText().toLowerCase().chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+            return (int) charList.stream().filter(c -> c.equals(Character.toLowerCase(character))).count();
+        } catch (Exception e) {
+            throw new Exception("Falha ao converter texto" + e.getMessage());
+        }
+    }
+
 }
